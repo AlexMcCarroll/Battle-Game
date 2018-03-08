@@ -1,2 +1,21 @@
-<br>
-<h2>Player 1: <%=@player1%> and Player 2: <%=@player2%></h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  body {
+    font-family: 'Ubuntu'
+  }
+  </style>
+  <body>
+    <h2>Enter you names, Player 1 and Player 2</h2>
+    <form action="/name" method="post">
+      <input type="text" name="player1" value="Player 1">
+      <input type="text" name="player2" value="Player 2">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
