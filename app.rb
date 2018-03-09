@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/player.rb'
 
 class Battle < Sinatra::Base
 
@@ -9,39 +10,29 @@ class Battle < Sinatra::Base
   end
 
   post '/name' do
-    $player1 = Player.new(params[:player1])
-    $player2 = Player.new(params[:player2])
+    $p1 = Player.new(params[:player1])
+    $p2 = Player.new(params[:player2])
     redirect to('/play')
   end
 
   get '/play' do
-    @player1 = $player1.name
-    @player2 = $player2.name
+    @player1 = $p1
+    @player2 = $p2
     erb(:play)
   end
 
   post '/attack_1' do
-    @player1 = $player1.name
-    @player2 = $player2.name
-    redirect to('/confirmation1')
+    @player1 = $p1
+    @player2 = $p2
+    @player1.attack(@player2)
+    redirect to('/play')
   end
 
   post '/attack_2' do
-    @player1 = $player1.name
-    @player2 = $player2.name
-    redirect to('/confirmation2')
-  end
-
-  get '/confirmation1' do
-    @player1 = $player1.name
-    @player2 = $player2.name
-    erb(:confirmation1)
-  end
-
-  get '/confirmation2' do
-    @player1 = $player1.name
-    @player2 = $player2.name
-    erb(:confirmation2)
+    @player1 = $p1
+    @player2 = $p2
+    @player2.attack(@player1)
+    redirect to('/play')
   end
 
   run! if app_file == $0

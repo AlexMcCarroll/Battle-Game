@@ -7,7 +7,12 @@
   </head>
   <style>
   body {
-    font-family: 'Ubuntu'
+    font-family: 'Ubuntu';
+    padding-top: 100px;
+    padding-left: 200px;
+  }
+  div {
+    padding: 50px 100px;
   }
   img {
     display: inline-block;
@@ -15,32 +20,23 @@
   }
   </style>
   <body>
-    <h2>Player 1: <%=@player1%> and Player 2: <%=@player2%></h2>
+    <h2>Player 1: <%=@player1.name%> and Player 2: <%=@player2.name%></h2>
     <div>
-    <%=@player1%> has 5 lives left
+    <%=@player1.name%> has <%=@player1.hit_points%> lives left
     <form action="/attack_1" method="post">
       <input type="submit" value="Attack Player 2!">
     </form>
+    <br>
+    <%="<img src='http://bit.ly/2iaLfgJ' >" * @player1.hit_points%>
     </div>
     <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    </div>
-    <div>
-    <%=@player2%> has 5 lives left
+    <h3><%=@player2.name%> has <%=@player2.hit_points%> lives left</h3>
+    <%="<img src='http://bit.ly/2iaLfgJ' >" * @player2.hit_points%>
+    <br>
+    <br>
     <form action="/attack_2" method="post">
       <input type="submit" value="Attack Player 1!">
     </form>
-    </div>
-    <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" >
     </div>
   </body>
 </html>
